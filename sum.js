@@ -2,6 +2,6 @@
 	function sum(a, b) {
 		return a + 
 	
-
-	// モジュールとして外部にエクスポート
+aaaaaaaaaad
+ひおあｈ｛｝
 	module.exports = sum;
