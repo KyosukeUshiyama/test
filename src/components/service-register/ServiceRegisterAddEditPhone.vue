@@ -421,7 +421,7 @@ export default Vue.extend({
     },
     registerNumberReadonly(): boolean {
       let last_two_digit = '';
-      this.customerData.service_cd ? last_two_digit = this.customerData.service_cd.slice(-2,-1) : '';
+      last_two_digit = this.customerData.service_cd.slice(-2,-1);
       // サービスコードが[2*,7*] AND 電番が050以外から始まる場合レジ番選択不可
       if (['2', '7'].includes(last_two_digit) && !this.checkIpTelNoStartWith050()) {
         // レジ番クリア
@@ -697,7 +697,7 @@ export default Vue.extend({
             if (data != null && (data.error_message != '' || data.confirm_message.length != 0)) {
               if (data.error_message == '') {
                 // memo:自動採番の場合は注意文言の仕様はないが、念のため作成
-                messages.concat(data.confirm_message)
+                messages += data.confirm_message
               } else {
                 // エラーがある場合はメッセージを表示して登録確認をしない
                 this.internalPhoneData.ip_tel_no = ''
@@ -1007,7 +1007,7 @@ export default Vue.extend({
     checkSpecialServiceCode() : boolean {
       let result = false
       let last_two_digit = "";
-      this.customerData.service_cd ? last_two_digit = this.customerData.service_cd.slice(-2,-1) : "";
+      last_two_digit = this.customerData.service_cd.slice(-2,-1);
       if(SPECIAL_SERVICE_CD.includes(last_two_digit)){
         result = true
       }
